@@ -8,7 +8,7 @@ A Laravel-based job board application.
 ## Requirements
 - PHP 8.1+
 - Composer
-- Laravel 11+
+- Laravel 12+
 - MySQL/PostgreSQL
 - Node.js & NPM (for frontend assets)
 - Alpine.js
