@@ -10,11 +10,17 @@ class TextInput extends Component
 {
     /**
      * Create a new component instance.
+     * @param string|null $value
+     * @param string|null $name
+     * @param string|null $placeholder
+     * @param string|null $formId Used to target form whenever a the filter is cleared
+     *
      */
     public function __construct(
         public ?string $value = null,
         public ?string $name = null,
-        public ?string $placeholder = null
+        public ?string $placeholder = null,
+        public ?string $formId = null
     )
     {
 
