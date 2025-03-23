@@ -1,18 +1,12 @@
 <div class="relative">
 
-    @if($formId)
+    @if($formRef)
         <button
             class="absolute top-0 right-0 flex h-full items-center px-2 hover:cursor"
             type="button"
-            onclick="
-                document.getElementById('{{ 'text-input-' . $name }}').value = '';
-                const form = document.getElementById('{{ $formId }}');
-                if (form && form.tagName.toLowerCase() === 'form') {
-                    form.submit();
-                } else {
-                    console.warn('Element with ID {{ $formId }} is not a form.');
-                }
-
+            @click="
+                $refs['input-{{ $name }}'].value = '';
+                $refs['{{ $formRef }}'].submit();
                 "
         >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-4 text-slate-500">
@@ -23,10 +17,10 @@
 
     <input
         type="text"
+        x-ref="input-{{ $name }}"
         placeholder="{{ $placeholder }}"
         name="{{ $name }}"
         value="{{ $value }}"
-        id="{{ 'text-input-' . $name }}"
         class="w-full rounded-md border-0 py-1.5 px-2.5 text-sm ring-1 ring-slate-300 placeholder:text-slate-400 focus:ring-2 pr-8"
     >
 </div>
