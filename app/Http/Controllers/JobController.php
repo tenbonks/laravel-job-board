@@ -15,7 +15,7 @@ class JobController extends Controller
 
         $jobs = Job::query();
 
-        // check if title or description matches anything in search input,
+        // check if title or description matches anything in search input (highest priority)
         // check if job salary is more than from salary
         // check if job salary is less than to salary
         $jobs
@@ -31,7 +31,10 @@ class JobController extends Controller
         })->when(request('max_salary'), function ($query) {
             $query
                 ->where('salary', '<=', request('max_salary'));
-        });
+        })->when(request('experience'), function ($query) {
+            $query
+                ->where('experience', request('experience'));
+            });
 
         return view('job.index', ['jobs' => $jobs->get()]);
     }

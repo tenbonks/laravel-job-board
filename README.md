@@ -11,80 +11,18 @@ A Laravel-based job board application.
 - Laravel 12+
 - MySQL/PostgreSQL
 - Node.js & NPM (for frontend assets)
-- Alpine.js
 
-## Installation
-
-```sh
-# Clone the repository
-git clone https://github.com/tenbonks/laravel-job-board.git
-cd laravel-job-board
-
-# Install dependencies
-composer install
-
-# Copy environment file and generate app key
-cp .env.example .env
-php artisan key:generate
-
-# Set up database in .env, then run:
-php artisan migrate --seed
-
-# Install frontend dependencies
-npm install
-
-# Build assets
-npm run dev
-```
-
-## Running the App
+## Local Development
 
 ```sh
-# Start the Laravel server
-php artisan serve
-
-# (Optional) Run Vite in a separate terminal for hot reloading
-npm run dev
+    # Run both commands in tandem when developing locally,
+    # as you will get hot reloads, if only running php artisan serve
+    # You'll need to refresh the page to see styling/js changes
+    
+    # To Run laravel server
+    php artisan serve
+    
+    # watch files and hot live reloads
+    npm run dev
 ```
-
-## Useful Artisan Commands
-
-```sh
-# Clear cache
-php artisan cache:clear
-php artisan config:clear
-php artisan route:clear
-php artisan view:clear
-
-# Run database migrations
-php artisan migrate --seed
-
-# Create a model with migration, factory, and controller
-php artisan make:model Job -mfc
-```
-
-## Testing
-
-```sh
-# Run feature and unit tests
-php artisan test
-```
-
-## Deployment
-
-```sh
-# Optimize for production
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
-
-# Build frontend assets
-npm run build
-```
-
-## Frontend
-This project uses Alpine.js for lightweight frontend interactions.
-
-## License
-MIT License
 
