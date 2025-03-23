@@ -1,6 +1,6 @@
 <x-layout>
 
-    <x-breadcrumbs class="mb-4" :links="['Jobs' => route('jobs.index'), $job->title => '#']" ></x-breadcrumbs>
+    <x-breadcrumbs class="mb-4" :links="['Jobs' => route('jobs.index'), $job->title . ' (' . $job->location  . ')' => '#']" ></x-breadcrumbs>
 
     <x-job-card :$job >
         {{-- using {!! !!} interpolation will NOT escape html --}}
