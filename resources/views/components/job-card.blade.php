@@ -11,7 +11,7 @@
 
     <div class="mb-4 flex justify-between text-sm items-center text-slate-500">
         <div class="flex space-x-4">
-            <div>Company</div>
+            <div>{{ $job->employer->company_name }}</div>
             <div>{{ $job->location }}</div>
         </div>
         <div class="flex space-x-1 text-xs">
