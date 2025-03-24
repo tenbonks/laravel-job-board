@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Query\Builder as QueryBuilder; // alias to avoid Eloquent\Builder
 
 class Job extends Model
@@ -15,6 +16,12 @@ class Job extends Model
     // Public static arrays are useful for creating enums for a model, $category and $experience can be seen referenced in the models factory
     public static array $experience = ['entry', 'intermediate', 'senior'];
     public static array $category = ['IT', 'Finance', 'Sales', 'Marketing'];
+
+
+    public function employer() : belongsTo
+    {
+        return $this->belongsTo(Employer::class);
+    }
 
     public function scopeFilter(Builder | QueryBuilder $query, array $filters) : Builder | QueryBuilder
     {
