@@ -47,7 +47,12 @@ class JobController extends Controller
      */
     public function show(Job $job)
     {
-        return view('job.show', ['job' => $job->load('employer')]);
+
+        // Load the current job, with its respective employer, and also all the jobs that belong to the employer
+        return view(
+            'job.show',
+            ['job' => $job->load('employer.jobs')]
+        );
     }
 
     /**
